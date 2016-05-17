@@ -1,8 +1,17 @@
 
-       <h3><center>Product Segment</center></h3>
-        Filter By Name: <input type="text" data-ng-model="customerFilter.name" />
+       <h1><center>{{ appSettings.title}}  </center></h1>
+       <h2><center>Sector List  </center></h2>
+       <table>
+          <tr>
+          <td>
+        Filter By Name: </td> <td><input type="text" data-ng-model="customerFilter.name" /></td>
+        </tr>
         <br /><br />
-        Filter by City : <input type="text" data-ng-model="customerFilter.city" />
+        <tr>
+        <td>
+        Filter by City : </td> <td><input type="text" data-ng-model="customerFilter.city" /> </td>
+        </tr>
+        </table>
         <br /><br />
         <table>
             <tr>
@@ -22,6 +31,8 @@
                 <td>{{cust.id}}</td>
             </tr>
         </table>
-        
+        <br />
     <span>Total customers: {{customers.length}} </span>
+    <br /> <br />
+    <footer>Version: {{appSettings.version}}</footer>
     

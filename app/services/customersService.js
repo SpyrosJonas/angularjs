@@ -1,6 +1,6 @@
 (function(){
-	var customerFactory = function(){
-		var customers = [
+  var customersService = function(){
+  	   var customers = [
                   {id:1,joined: '2000-12-02', name:   'Marron5',city:   'New York',    anOrder: 1500, 
                     orders:[ {  id:1, product:'Shoes',total: 9.9956 } ]
                   },
@@ -20,26 +20,20 @@
                     ]
                   }
                   ];
+            
+            this.getCustomers = function(){
+            	 return customers;
+            };
 
-                  var factory = {};
-                  factory.getCustomers = function (){
-                  	  return customers;
-                  };
-
-                   factory.getCustomer = function (customerId) {
-                     for (var i=0, len=customers.length; i<len; i++){
-                       if (customers[i].id === parseInt(customerId)){
-                           return customers[i];
-                       }
-                     }
-
-                    return {};
-                   }
-
-                  return factory;
-
-	}
-  
-  angular.module('customersApp').factory('customersFactory',customerFactory);
-
+            this.getCustomer = function(customerId){
+            	for(var i=0, len=customers.length; i< len; i++){
+            		if(customers[i].id === parseInt(customerId)){
+            			return customers[i];
+            		}
+            	}
+            	return {};
+            };
+         };
+     angular.module('customersApp').service('customersService', customersService);
+     
 }());

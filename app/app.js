@@ -14,7 +14,7 @@
 
    			})
    			.otherwise( { redirectTo: '/'} );
-   });
+   }); 
 
 }());
 
