@@ -1,0 +1,27 @@
+
+       <h3><center>Product Segment</center></h3>
+        Filter By Name: <input type="text" data-ng-model="customerFilter.name" />
+        <br /><br />
+        Filter by City : <input type="text" data-ng-model="customerFilter.city" />
+        <br /><br />
+        <table>
+            <tr>
+                <th ng-click="doSort(name)"><a href="">Name</a></th>
+                <th ng-click="doSort(city)"><a href="">City</a></th>
+                <th ng-click="doSort(anOrder)"><a href="">Order Total</a></th>
+                <th ng-click="doSort(joined)"><a href="">Joined</a></th>
+                <th>&nbsp;<th>
+                <th>Order Id<th>
+            </tr>
+            <tr ng-repeat="cust in customers | limitTo:4 | filter: customerFilter |orderBy:sortBy:reverse">
+                <td>{{cust.name | uppercase}}</td>
+                <td>{{cust.city | lowercase}}</td>
+                <td>{{cust.anOrder | currency:'€':2 }}</td>
+                <td>{{cust.joined | date:'dd/MM/yyyy'}}</td>
+                <td> <a href= "#/orders/{{cust.id}}">View Order </a></td>
+                <td>{{cust.id}}</td>
+            </tr>
+        </table>
+        
+    <span>Total customers: {{customers.length}} </span>
+    

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app>
+<head >
+    <title>
+    </title>
+    <link href="style2.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!--    <div ng-init="names=['Dave','Jeff','Heedy','Danny']"> -->
+    <div ng-init="people=[{name:'Monitor',type:'I.T', orderTotal:4500.45},{name:'Processor',type:'I.T',orderTotal:2000},{name:'Audi',type:'Cars',orderTotal:10000}]">
+       <h3> Iterating through data with ng-repeat</h3>
+        <ul>
+            <li ng-repeat="person in people">{{person.name + ' ' + person.age}}</li>
+        </ul>
+    </div>
+    <table>
+        <tr>
+            <td>Select Product:</td>
+            <td><input type="text" data-ng-model="nameText" /></td>    
+            </tr>
+    <br />        
+    <tr>
+        <td>Select Product Type:</td>
+        <td><input type="text" data-ng-model="nameType" /></td>
+   </tr>
+    <br />
+    <br />
+    </table>
+    <table>
+        <tr>
+            <td>Product Name</td>
+            <td>Type</td>
+            <td>Order</td>
+        </tr>
+        
+        <tr data-ng-repeat="person in people | filter:nameText | filter: nameType |orderBy: 'name'">
+            <td>{{person.name}}</td>
+            <td>{{person.type}}</td>
+            <td>{{person.orderTotal | currency:"":0 }}</td>
+        </tr>
+    </table>
+    
+    
+    
+    <script src="angular.js"></script>
+</body>
+</html>

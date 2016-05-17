@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app>
+<head >
+    <title>
+    </title>
+    <link href="style2.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!--    <div ng-init="names=['Dave','Jeff','Heedy','Danny']"> -->
+    <div ng-init="people=[{name:'Spyros Jonas',age:56},{name:'John Jonas',age:74}]">
+       <h3> Iterating through data with ng-repeat</h3>
+        <ul>
+            <li ng-repeat="person in people">{{person.name + ' ' + person.age}}</li>
+        </ul>
+    </div>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Age</td>
+        </tr>
+        <tr ng-repeat="person in people">
+            <td>{{person.name}}</td>
+            <td>{{person.age}}</td>
+        </tr>
+    </table>
+    
+    
+    <script src="angular.js"></script>
+</body>
+</html>
