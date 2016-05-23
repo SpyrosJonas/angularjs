@@ -5,10 +5,42 @@
 .navy {
   color: navy
 }
-table.th {
-    bgcolor:beige
-}
+
 /* ng-cloak */
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng.ng-cloak {
     display: none !important;
 }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0.5rem;
+
+}
+.FFont {
+	font-family: 'Fjalla One', sans-serif;
+	
+}
+.UC {
+	font-family: 'Ubuntu Condensed', sans-serif;	
+	font-weight: bold;
+}
+
+/*
+table, th, td {
+   border: 0.5px solid black;
+}
+*/
+th {
+    text-align: center; 
+    background-color: #ffff99;
+    color: #000099;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: #f5f5f5}
+
+tr:nth-child(even) {background-color: #f2f2f2}
+

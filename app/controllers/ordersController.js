@@ -1,11 +1,20 @@
 (function() {
-	var OrdersController = function($scope, $routeParams, customersFactory){
-		 var customerId = $routeParams.customerId;		 
+	var OrdersController = function($scope, $routeParams, customersFactory, appSettings){
+		 var customerId = parseInt($routeParams.customerId);		 
          //$scope.orders = null;
          $scope.customer= null;
-         
+         $scope.appSettings = appSettings;
          function init() {
-           $scope.customer=customersFactory.getCustomer(customerId);
+            customersFactory.getCustomer(customerId)
+              .success (function(customer){
+                 $scope.customer = customer;
+              })
+              .error(function(data, status, headers, config){
+                //handle error
+              });
+           //$scope.customer=customersFactory.getCustomer(customerId);
+
+
        }
           // $scope.customers = [
           //         {id:1,joined: '2000-12-02', name:   'Marron5',city:   'New York',    anOrder: 1500, 

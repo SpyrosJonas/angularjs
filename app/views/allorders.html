@@ -1,0 +1,23 @@
+  <h1><center>{{ appSettings.title}}  </center></h1>
+ <h2><center>All Products List</center></h2>
+<center><h2>Customer Orders</h2>
+<br />
+
+Filter: <input type="text" ng-model="orderFilter.product" />
+<br />
+<br />
+<table class="table">
+	<tr>
+		<th ng-click='doSort(product)'><a href="">Product</a></th>
+		<th ng-click='doSort(total)'><a href="">Total</a></th>
+	</tr>
+	<tr ng-repeat="order in orders | filter:orderFilter | orderBy:sortBy:reverse " class="repeat-animation">
+		<td> {{order.product | uppercase}} </td>
+		<td> {{order.total | currency:'€':2  }} </td>
+	</tr>
+	<tr ng-class="totalType" >
+		<td>&nbsp;</td>
+		<td>{{ordersTotal || currency}} ({{totalType}}!!)</td>
+	</tr>   
+</table>
+</center>

@@ -4,35 +4,37 @@
        <table>
           <tr>
           <td>
-        Filter By Name: </td> <td><input type="text" data-ng-model="customerFilter.name" /></td>
+        <div class="UC">Filter By Name:</div> </td> <td><input type="text" placeholder="name" data-ng-model="customerFilter.name"  /></td>
         </tr>
         <br /><br />
         <tr>
         <td>
-        Filter by City : </td> <td><input type="text" data-ng-model="customerFilter.city" /> </td>
+        <div class="UC">Filter by City : </div></td> <td><input type="text" placeholder="city" data-ng-model="customerFilter.city"  /> </td>
         </tr>
         </table>
         <br /><br />
-        <table>
+        <table class="table table-striped">
             <tr>
-                <th ng-click="doSort(name)"><a href="">Name</a></th>
+                <th ng-click="doSort(name)"><a href="">SECTOR</a></th>
                 <th ng-click="doSort(city)"><a href="">City</a></th>
                 <th ng-click="doSort(anOrder)"><a href="">Order Total</a></th>
                 <th ng-click="doSort(joined)"><a href="">Joined</a></th>
-                <th>&nbsp;<th>
-                <th>Order Id<th>
+                <th><a href="">Go to Sector Details</a></th>
+                <th><a href="">Order Id</a></th>
+                <th>&nbsp;</th>
             </tr>
-            <tr ng-repeat="cust in customers | limitTo:4 | filter: customerFilter |orderBy:sortBy:reverse">
+            <tr ng-repeat="cust in customers | limitTo:4 | filter: customerFilter | orderBy:sortBy:reverse " class="repeat-animation">
                 <td>{{cust.name | uppercase}}</td>
                 <td>{{cust.city | lowercase}}</td>
                 <td>{{cust.anOrder | currency:'€':2 }}</td>
                 <td>{{cust.joined | date:'dd/MM/yyyy'}}</td>
                 <td> <a href= "#/orders/{{cust.id}}">View Order </a></td>
                 <td>{{cust.id}}</td>
+                <td class="slide-animation"><a href="#/customers"><span class="glyphicon glyphicon-remove delete" ng-click="deleteCustomer(cust.id)"></span><a></td>
             </tr>
         </table>
         <br />
-    <span>Total customers: {{customers.length}} </span>
+    <span>Sectors: ({{customers.length}} )</span>
     <br /> <br />
     <footer>Version: {{appSettings.version}}</footer>
     

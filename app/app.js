@@ -1,6 +1,6 @@
 //Option1
 (function (){
-   var app = angular.module('customersApp', ['ngRoute']);
+   var app = angular.module('customersApp', ['ngRoute','ngAnimate']);
 
    app.config(function($routeProvider) {
    	   $routeProvider
@@ -13,6 +13,14 @@
    				templateUrl: 'app/views/orders.html'
 
    			})
+            // .when('/orders/', {
+            //     controller: 'AllOrdersController',
+            //     templateUrl: 'app/views/allorders.html'
+            //  })
+            .when('/orders', {
+               controller: 'totalOrdersController',
+               templateUrl: 'app/views/allorders.html'
+            })
    			.otherwise( { redirectTo: '/'} );
    }); 
 
